@@ -1,6 +1,7 @@
 const assert = require('assert');
 const Decorator = require('../tdd_painter_decorator.js');
 const Room = require('../room.js');
+const Paint = require('../paint.js')
 
 describe('decorator', function () {
   let decorator;
@@ -25,7 +26,7 @@ describe('decorator', function () {
       assert.strictEqual(actual, 1)
     });
 
-    describe('room size', function () {
+    describe('room', function () {
       let room;
       beforeEach(function () {
         room = new Room();
@@ -35,6 +36,28 @@ describe('decorator', function () {
         const actual = room.sizeOfRoom;
         assert.strictEqual(actual, 5);
       });
+
+      it('should not be painted', function () {
+        const actual = room.notPainted;
+        assert.strictEqual(actual, 'Not painted')
+      });
+
+      it('should be painted', function () {
+        const actual = room.painted;
+        assert.strictEqual(actual, 'painted')
+      });
+
+      describe('paint', function () {
+        let paint;
+        beforeEach(function () {
+          paint = new Paint();
+        });
+
+        it('should show how many litres of paint', function () {
+          const actual = paint.inLitres;
+          assert.strictEqual(actual, 10);
+        });
+      })
     });
 
 
