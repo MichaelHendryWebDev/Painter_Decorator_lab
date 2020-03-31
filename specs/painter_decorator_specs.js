@@ -2,15 +2,22 @@ const assert = require('assert');
 const Decorator = require('../tdd_painter_decorator.js');
 
 describe('decorator', function () {
-  it('should have paint stock', function () {
-    const decorator = new Decorator(0);
-    const actual = decorator.paintStock;
-    assert.strictEqual(actual, 0);
+  let decorator;
+  beforeEach(function () {
+    decorator = new Decorator();
   });
 
-  it('should add to paint stock', function () {
-    const decorator = new Decorator(1);
-    const actual = decorator.paintStock;
-    assert.strictEqual(actual, 1);
+  describe('Paint Stock', function () {
+    it('should have no paint in stock', function () {
+      const actual = decorator.paintStock;
+      assert.deepStrictEqual(actual, []);
+    });
+
+    it('should return amount of paint in stock', function () {
+      const actual = decorator.paintInStock();
+      assert.strictEqual(actual, 0);
+    });
   });
+
+
 });
