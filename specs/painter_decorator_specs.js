@@ -1,5 +1,6 @@
 const assert = require('assert');
 const Decorator = require('../tdd_painter_decorator.js');
+const Room = require('../room.js');
 
 describe('decorator', function () {
   let decorator;
@@ -17,7 +18,27 @@ describe('decorator', function () {
       const actual = decorator.paintInStock();
       assert.strictEqual(actual, 0);
     });
-  });
 
+    it('should add paint to paint stock', function () {
+      decorator.addToPaintStock('Red');
+      const actual = decorator.paintInStock();
+      assert.strictEqual(actual, 1)
+    });
+
+    describe('room size', function () {
+      let room;
+      beforeEach(function () {
+        room = new Room();
+      });
+
+      it('should have room size of square meters', function () {
+        const actual = room.sizeOfRoom;
+        assert.strictEqual(actual, 5);
+      });
+    });
+
+
+
+  });
 
 });
