@@ -57,7 +57,12 @@ describe('decorator', function () {
           const actual = paint.inLitres;
           assert.strictEqual(actual, 10);
         });
-      })
+
+        it ('should check if empty', function () {
+          const actual = paint.isPaintEmpty();
+          assert.strictEqual(actual, 'not empty')
+        });
+      });
     });
 
 
